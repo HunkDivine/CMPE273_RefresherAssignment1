@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+var counter = 1;
+
+</script>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Create a text based game using conditions in javascript">
+<title>Conditions</title>
+</head>
+<body>
+
+<span id="story">You awaken in a strange place, you have a splitting headache, the room is dark, what do you do?
+<ul>
+<li>go back to sleep</li>
+<li>find the lights</li>
+<li>panic and scream</li>
+</ul>
+
+
+</span>
+<br><br><br>
+
+<input type="text" id="box" size="15" />
+<input type="button" id="button" value="Go" onclick = "move()">
+<script type="text/javascript">
+
+function move(){
+	switch(true){
+	
+	case (counter == 0 || counter == 1):
+
+		var choice = document.getElementById("box").value.toLowerCase();
+		var change = document.getElementById("story");
+	
+		if(choice == 'go back to sleep'){
+			change.innerHTML = "You go back to sleep, but the process keeps repeating <br> \
+								You awaken in a strange place, you have a splitting headache, the room is dark, what do you do? \
+								<ul> \
+								<li>go back to sleep</li> \
+								<li>find the lights</li> \
+								<li>panic and scream</li> \
+								</ul>";
+			document.getElementById("box").value = "";
+			counter = 0;
+		}
+		else if(choice == 'find the lights'){
+			change.innerHTML = "You stumble and fumble, bump your already aching head at the walls, but manage to find the lights <br> \
+								You turn them on more terrified then ever and see some things, what do you do? <br> \
+								<ul> \
+								<li>try to open the door </li> \
+								<li>look around the room</li> \
+								<li>panic and scream</li> \
+								";
+			document.getElementById("box").value = "";
+		}
+		else if(choice == 'panic and scream'){
+			change.innerHTML = "You scream and shout, then scream some more. <br> \
+								Nothing happens, until it does, you hear a murmur and hear the door crack open <br>\
+								What happened later is unclear, there was a loud bang and pain stinged you like never before <br> \
+								Now all you see is a bright white light, <br><br> There's nothing more to do";
+							
+			document.getElementById("box").value = "";
+			document.getElementById("box").style.visibility = "hidden";
+			document.getElementById("button").style.visibility = "hidden";
+			counter = 99;
+						
+		}
+		else{
+			alert("That's not what you'd want to do");
+			break;
+		}
+		
+		counter = counter + 1;
+		break;
+	
+	case (counter == 2):
+		var choice = document.getElementById("box").value;
+		var change = document.getElementById("story");
+		
+		if(choice == 'try to open the door'){
+			change.innerHTML = "You try to softly open the metal door, but its locked from the outside. <br> \
+								You contemplate your next steps, but wonder if you will be stuck in the room eternally <br> \
+								<ul><li>Panic</li><li>Panic!</li><li>PANIC!</li></ul>";
+			document.getElementById("box").value = "";
+		}
+		else if(choice == 'look around the room'){
+			change.innerHTML = "You look around the room, but all you find is rubbish, <br> \
+								There are no windows and the walls are all solid brick, <br> \
+								You contemplate your next steps, but wonder if you will be stuck in the room eternally <br> \
+								<ul><li>Panic</li><li>Panic!</li><li>PANIC!</li></ul>";
+			document.getElementById("box").value = "";
+		}
+		else if(choice == 'panic and scream'){
+			change.innerHTML = "You scream and shout, then scream some more. <br> \
+								Nothing happens, until it does, you hear a murmur and hear the door crack open <br>\
+								What happened later is unclear, there was a loud bang and pain stinged you like never before <br> \
+								Now all you see is a bright white light, <br><br> There's nothing more to do";
+			document.getElementById("box").value = "";
+			document.getElementById("box").style.visibility = "hidden";
+			document.getElementById("button").style.visibility = "hidden";
+			counter = 99;
+		}
+		else{
+			alert("That's not what you'd want to do");
+		}
+		counter = counter + 1;
+		break;
+		
+	case (counter == 3):
+		
+		var change = document.getElementById("story");
+		change.innerHTML = "Your instinct was right, <br> \
+							You are stuck in the room eternally <br><br> \
+							Maybe this was a dream?";
+						
+		document.getElementById("box").style.visibility = "hidden";
+		document.getElementById("button").style.visibility = "hidden";
+							
+		counter = 99;
+		
+	case (counter > 90):
+		
+		document.getElementById("box").style.visibility = "hidden";
+		document.getElementById("button").style.visibility = "hidden";
+		
+		break;
+		
+	default:
+		var choice = document.getElementById("box").value;
+		var change = document.getElementById("story");
+	
+		if(choice == 'a'){
+			change.innerHTML = "default";
+		}
+		else{
+			change.innerHTML = "default";
+		}
+		
+		break;
+		
+	
+	}
+	
+}
+
+
+
+</script>
+
+</body>
+</html>

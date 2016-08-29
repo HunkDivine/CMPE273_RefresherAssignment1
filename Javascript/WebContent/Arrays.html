@@ -9,22 +9,36 @@
 
 <script type="text/javascript">
 
-var unsorted = [42,53,12,52,73];
-var sorted = [];
+var unsorted1 = [42,53,12,52,73];
+var unsorted2 = ["Grapes","Jackfruit","Banana","Apple","Coconut"];
+var sorted1 = [];
+var sorted2 = [];
 
 
-document.write("Numbers in array are: ")
+document.write("Numbers in array1 are: ")
 
-for(i=0;i<unsorted.length;i++){
-	document.write(unsorted[i] + " ");
+for(i=0;i<unsorted1.length;i++){
+	document.write(unsorted1[i] + " ");
 }
 
-sorted = unsorted.sort();
+document.write("<br>");
+document.write("Numbers in array2 are: ")
+for(i=0;i<unsorted2.length;i++){
+	document.write(unsorted2[i] + " ");
+}
 
-document.write("<br><br>Numbers in sorted array are: ")
+sorted1 = unsorted1.sort();
+sorted2 = unsorted2.sort();
+document.write("<br><br>Numbers in sorted array1 are: ")
 
-for(i=0;i<sorted.length;i++){
-	document.write(sorted[i] + " ");
+for(i=0;i<sorted1.length;i++){
+	document.write(sorted1[i] + " ");
+}
+
+document.write('<br>');
+document.write("Numbers in sorted array2 are: ")
+for(i=0;i<sorted2.length;i++){
+	document.write(sorted2[i] + " ");
 }
 </script>
 
