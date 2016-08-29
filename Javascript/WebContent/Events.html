@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Generate random number using events in javascript">
+<title>Events</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function clickity() {
+	
+	var number = Math.floor(Math.random()*100);
+	
+	document.getElementById("click").innerHTML = "Your random number is: " + number;
+}
+
+
+</script>
+
+
+
+<form name="form">
+<input type="button" id="button" value="Click Me to generate a random number!" onclick="clickity()">
+
+<p id="click"></p>
+
+</form>
+
+
+</body>
+</html>
