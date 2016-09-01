@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Write a javascript program to analyze given telephone, credit card number using regex">
+<title>Regular Expressions</title>
+</head>
+
+<body>
+<script type="text/javascript">
+
+
+function card(value) {
+//luhn's algorithm
+		var sum = 0, nDigit = 0, flag = false;
+
+		for (var i = value.length - 1; i >= 0; i--) {
+			var cDigit = value.charAt(i),
+				  nDigit = parseInt(cDigit, 10);
+
+			if (flag) {
+				if ((nDigit *= 2) > 9) 
+					nDigit -= 9;
+			}
+
+			sum += nDigit;
+			flag = !flag;
+		}
+
+		return (sum % 10) == 0;
+	}
+
+
+
+function analyze(){
+	
+	var digits = document.getElementById("number");
+	var regmobile = new RegExp("^(?=.{10}$)(?=.*[0-9])","g");
+	var regcard = new RegExp("^(?=.{16}$)(?=.*[0-9])","g");
+	var result = document.getElementById("result");
+	var length = digits.value.length;
+	if(regmobile.test(digits.value)){
+	
+		result.innerHTML = "It's a 10 digit number, might be a phone number";
+		
+		
+	}
+	else if(regcard.test(digits.value)){
+		if(card(digits.value)){
+			result.innerHTML = "It's a valid 16 digit credit/debit card number";
+		}
+		else{
+			result.innerHTML = "It's just a 16 digit number, but not a valid credit/debit number"
+		}
+	}
+	else{
+		result.innerHTML = "It's neither a mobile or card number, just a " + length + " digit number";
+	}
+}
+
+
+</script>
+
+Enter a mobile or credit/debit card number: <input type="text" id="number">
+<input type="button" id="click" value="find" onclick="analyze()">
+<br><br>
+<span id="result"></span>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Write a program to show error using strict mode in javascript">
+<title>Strict Mode</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function parent(){
+	
+	x = "Hello!";
+	document.write(x + "<br>");
+	nested();
+	deeplynested();
+}
+
+function nested(){
+		
+			y = "Ola!";
+			document.write(y);
+			deeplynested();
+	}	
+function deeplynested(){
+			
+			"use strict";
+			z = "Bonjour!";
+			document.write(z);
+			console.log(z);
+		}
+		
+
+</script>
+
+<input type="button" onclick="parent()" value="Go">
+
+</body>
+</html>
