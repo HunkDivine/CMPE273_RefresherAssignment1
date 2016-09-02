@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Implement browser history using HTML5 local storage">
+<title>Local Storage</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function history(){
+	
+	var url = document.getElementById("url").value;
+	
+	//get random 5 digit key
+	var key = (Math.random().toString(36)).slice(2, 5+2);
+	
+	var historyObj = {address: url, date:String(Date())};
+	localStorage.setItem(key,JSON.stringify(historyObj));
+	
+	document.getElementById("url").value = "";
+	
+}
+
+function display(){
+	
+	var key="", history="";
+	
+	for(var i=0;i<localStorage.length;i++){
+		
+		key = localStorage.key(i);
+		var historyJSON = JSON.parse(localStorage.getItem(key));
+		history +=  "Time: " + historyJSON.date + "<br>Url: " + "<a href='" + historyJSON.address + "'>" + historyJSON.address + "</a>" + "<br><br>";
+	}
+		
+	document.getElementById("print").innerHTML = history;	
+	
+}	
+
+function clearhistory(){
+	//document.write("sdifjfois");
+	console.log("Clear");
+	localStorage.clear();
+	display();
+	
+}	
+
+</script>
+
+Enter website URL: <input type="text" id="url"><input type="button" onclick="history()" id="go" value="save to history">
+<br>
+<input type="button" id="dekhad" onclick="display()" value="see history">
+<input type="button" id="clear" onclick="clearhistory()" value="clear history">
+<br><br>
+<span id="print">
+
+</span>
+</body>
+</html>

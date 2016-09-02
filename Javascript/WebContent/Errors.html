@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="write a javscript program to demonstrate errors">
+<title>Errors</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+function check(){
+	
+	try{
+		throw new TypeError('Error Thrown', "Errors.js", 4);
+	}
+	catch(e){
+		console.log(e.message);
+		console.log(e.name);
+		
+		document.getElementById("msg1").innerHTML = "Error Thrown, Error Type: " + " " + e.name;
+	}
+	finally{
+		
+		document.getElementById("msg2").innerHTML = "Recovered from error";
+	}
+}
+
+</script>
+
+
+
+<input type="button" id="go" value="Throw an Error" onclick="check()">
+<p id="msg1"></p>
+<p id="msg2"></p>
+</body>
+</html>
