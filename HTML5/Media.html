@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Use HTML5 to play a video and audio filewith controls.">
+<title>Media</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function playvideo(){
+	
+	console.log("clicked");
+	var div = document.getElementById("vid");
+	var button = document.getElementById("playvideo");
+	if(div.style.display == "block"){
+		div.style.display = "none";
+		button.value = "Click to Play video";
+	}
+	else{
+		div.style.display = "block";
+		button.value = "Click to Hide video";
+	}
+}
+
+function playaudio(){
+	
+	var div = document.getElementById("audio");
+	var button = document.getElementById("playaudio");
+	if(div.style.display == "block"){
+		div.style.display = "none";
+		button.value = "Click to Play audio";
+	}
+	else{
+		div.style.display = "block";
+		button.value = "Click to Hide audio";
+	}
+	
+}
+
+
+</script>
+
+<input type="button" onclick="playvideo()" value="Click to play video" id="playvideo">
+<input type="button" onclick="playaudio()" value="Click to play audio" id="playaudio">
+
+<div id="vid" style="display:none;">
+<h1>Video: Fall Welcome Address 2016</h1>
+<video width="320" height="240" controls>
+<source src="res/Fall Welcome Address 2016.mp4" type="video/mp4">
+</video>
+</div>
+
+<div id="audio" style="display:none;">
+<h1>Audio: 2004 Obama Keynote</h1>
+<audio controls>
+  <source src="res/speech.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+
+</body>
+</html>

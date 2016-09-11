@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Demonstrate geolocation in HTML5">
+<title>Geolocation</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function getLocation() {
+	console.log("in function");
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        write.innerHTML = "Geolocation is not supported, sorry!";
+    }
+}
+function showPosition(position) {
+	alert("Your Latitude is: " + position.coords.latitude + "\n\nYou Longitude is: " + position.coords.longitude);
+    write.innerHTML = "<br><br>Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude; 
+}
+
+</script>
+<h1>Find your latitude and longitude with one click!<br><br></h1>
+<div style="align:center;">
+<input type="button" onclick="getLocation()" value="let's see where you are">
+</div>
+<span id="write"></span>
+</body>
+
+</html>

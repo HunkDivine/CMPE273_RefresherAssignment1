@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta name="description" content="Calculate area of a rectangle using inheritance in javascript">
+<meta name="description" content="Calculate area of a square using inheritance in javascript">
 <title>Inheritance</title>
 </head>
 
@@ -14,7 +14,6 @@ function shape2D(length,width){
 	
 	this.length = length;
 	this.width = width;
-	this.perimeter = 2*length + 2*width;
 	
 }
 
@@ -24,10 +23,16 @@ shape2D.prototype.area = function(){
 			
 		}
 
-var s = new shape2D(5,5);
-var x = s.area();
+function square(){
 
-document.write("Area is " + x);
+}
+
+square.prototype = new shape2D(5,5);
+var x = square.prototype.area();
+
+document.write("Area of square with length " + square.prototype.length + " and width " + square.prototype.width + " is " + x);
+
+
 
 
 </script>

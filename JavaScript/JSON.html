@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Get the popular news from the world using JSON in JavaScript">
+<title>JSON</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+
+function getnews(){
+
+var xmlhttp = new XMLHttpRequest();
+//var url = "https://www.reddit.com/r/india/comments/5279w6/how_idea_chorullar_commits_daylight_theft_using.json 	";
+var url = "https://www.reddit.com/r/worldnews/hot/.json"
+	
+xmlhttp.onreadystatechange=function() {
+   if (this.readyState == 4 && this.status == 200) {
+       myFunction(this.responseText);
+   }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(response) {
+   var arr = JSON.parse(response);
+   var title = [];
+   var link = [];
+   var news = [];
+   var posts = document.getElementById("posts");
+   for(i=0;i<10;i++){
+	   title[i] = arr.data.children[i].data.title;
+	   //console.log(title[i]);
+	   link[i] = arr.data.children[i].data.url;
+	   //console.log(link[i]);
+	   news[i] = "<a href='" + link[i] + "'>" + title[i] + "</a><br><br>";
+	   
+   }
+   posts.innerHTML = news;
+
+}
+}
+
+getnews();
+
+
+
+</script>
+
+<h3>Popular news from the world</h3>
+<span id = "posts">
+
+</span>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="description" content="Demonstrate Input Types in HTML5 by creating a sign up page">
+<title>Input Types</title>
+</head>
+<body>
+<div style="margin:auto;width:25%;margin-top:10%">
+<h1 align="center">Sign up!</h1>
+<form>
+<table>
+<tr>
+<td>First Name:</td>
+<td><input type="text" autofocus required></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><input type="text" required></td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td> <input type="radio" name="gender">Male<br><input type="radio" name="gender">Female
+<tr>
+<td>Email Address:</td>
+<td><input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required></td>
+</tr>
+<tr>
+<td>Contact No: </td>
+<td><input type="text" pattern="[0-9]+" required>
+<tr>
+<td>Interested in recieving mails for:</td>
+<td>  <input type="checkbox" name="promotions" value="promotions"> Promotions<br>
+  <input type="checkbox" name="contests" value="contests"> Contests </td>
+  </tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" value="go"></td>
+</table>
+</form>
+</div>
+</body>
+</html>
